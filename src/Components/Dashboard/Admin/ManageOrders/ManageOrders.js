@@ -69,7 +69,7 @@ const ManageOrders = () => {
                             orders.map((order, index) =>
                                 <tr key={order._id}>
                                     <th className="text-start" scope="row">{index + 1}</th>
-                                    <td className="text-start">{order.name.slice(0,20)}</td>
+                                    <td className="text-start">{order.name.slice(1, 7)}</td>
                                     <td className="text-start">{order.email}</td>
                                     <td className="text-start">{order?.productTitle}</td>
                                     <td className="text-start">{order.address}</td>

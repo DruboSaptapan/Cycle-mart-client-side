@@ -40,7 +40,7 @@ const Home = () => {
                                     <div className="card-body">
                                         <div className="row">
                                             <div className="col-lg-8">
-                                                <h5 className="card-title text-start mb-4" style={{lineHeight: '32px'}}>{product.name}</h5>
+                                                <h5 className="card-title text-start mb-4" style={{ lineHeight: '32px' }}>{product.name}</h5>
                                             </div>
                                             <div className="col-lg-4">
                                                 <h3 className="card-text text-start">{product.price}</h3>
