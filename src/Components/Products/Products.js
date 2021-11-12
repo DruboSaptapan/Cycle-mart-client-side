@@ -37,10 +37,10 @@ const Products = () => {
                                     <div className="card-body">
                                         <div className="row">
                                             <div className="col-8">
-                                                <h6 className="card-title text-start mb-4" style={{lineHeight: '32px'}}>{product.name}</h6>
+                                                <h5 className="card-title text-start mb-4" style={{lineHeight: '32px'}}>{product.name}</h5>
                                             </div>
                                             <div className="col-4">
-                                                <h6 className="card-text text-start">{product.price}</h6>
+                                                <h3 className="card-text text-start">{product.price}</h3>
                                             </div>
                                             <div className="col-12">
                                                 <p className="text-start" style={{fontSize: '16px'}}>{product.description}</p>
