@@ -1,0 +1,19 @@
+.banner{
+    background-color: rgba(192, 209, 209, 0.2);
+    width: 100vw;
+    padding: 100px 20px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner h1{
+    color: rgba(8, 8, 8, 0.8);
+    font-size: 2.5rem;
+    word-spacing: 4px;
+}
+@media screen and (max-width: 425px) {
+    .banner h1{
+        font-size: 2rem;
+    }
+}
