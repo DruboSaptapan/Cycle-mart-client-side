@@ -12,7 +12,7 @@ const Banner = () => {
                 </div>
                 <div className="col-lg-6 col-12 text-start order-1 order-lg-2">
                     <h1 className="fw-bold">Recoils Gents Bicycle Black -24inch (MTB Dual)</h1>
-                    <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur corporis aspernatur natus obcaecati alias distinctio eius delectus veritatis tenetur rerum.</p>
+                    <p className="">Riding cycle in the morning is a good exercise for health. Riding cycle in the morning is a good exercise for health. Riding cycle in the morning is a good exercise for health.</p>
                     <Link to="/products" className="btn btn-secondary px-5 text-light">Explore...</Link>
                 </div>
             </div>

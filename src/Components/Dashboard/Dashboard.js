@@ -118,6 +118,9 @@ const Dashboard = () => {
                                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div className="offcanvas-body">
+                                <li className="list-group-item text-start border border-0">
+                                    <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to="/home">Home</NavLink>
+                                </li>
                                 {!admin &&
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item text-start border border-0">
