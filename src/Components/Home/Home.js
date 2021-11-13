@@ -14,6 +14,7 @@ const Home = () => {
         fetch('https://floating-brook-78748.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
+            .catch((e)=>{})
     }, [])
     const { isLoading } = useAuth();
     if (isLoading) {
@@ -55,8 +56,8 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <ContactUs></ContactUs>
             <Reviews></Reviews>
+            <ContactUs></ContactUs>
             <Footer></Footer>
         </div>
     );

@@ -8,10 +8,10 @@ const ManageOrders = () => {
         fetch('https://floating-brook-78748.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setServices(data))
+            .catch((e) => { })
     }, [])
 
     const handleApprove = id => {
-
     }
 
     const handleShipped = id => {
@@ -75,18 +75,23 @@ const ManageOrders = () => {
                                     <th className="text-start" scope="row">{index + 1}</th>
                                     <td className="text-start">{order.name}</td>
                                     <td className="text-start">{order.email}</td>
-                                    <td className="text-start">{order?.productTitle.slice(0, 20)}</td>
+                                    <td className="text-start" title={order?.productTitle}>{order?.productTitle.slice(0, 20)}</td>
                                     <td className="text-start">{order.address}</td>
                                     <td className="text-start">{order.price}</td>
                                     <td className="text-start">
+
                                         {
-                                            orders.status
+                                            orders.status === 'shipped' ?
+                                                <span className="badge bg-success">{order?.status}</span>
+                                                : orders.status === 'Approved' ?
+                                                    <span className="badge bg-primary">{order?.status}</span>
+                                                    : <span className="badge bg-danger" >Pending</span>
                                         }
-                                        <span className="badge bg-danger" id="pending">Pending</span>
+
                                     </td>
-                                    <td className="text-start">
+                                    <td className="text-start py-2">
                                         <div className="dropdown">
-                                            <a className="btn btn-secondary dropdown-toggle btn-sm" href="actions" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a className="btn btn-secondary-outline dropdown-toggle btn-sm" href="actions" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Actions
                                             </a>
                                             <ul className="dropdown-menu w-25 px-3" aria-labelledby="dropdownMenuLink">

@@ -12,6 +12,7 @@ const Products = () => {
         fetch('https://floating-brook-78748.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
+            .catch((e)=>{})
     }, [])
     const { isLoading } = useAuth();
     if (isLoading) {
@@ -40,7 +41,7 @@ const Products = () => {
                                                 <h5 className="card-title text-start mb-4" style={{lineHeight: '32px'}}>{product.name}</h5>
                                             </div>
                                             <div className="col-4">
-                                                <h3 className="card-text text-start">{product.price}</h3>
+                                                <h3 className="card-text text-start mt-2">{product.price}</h3>
                                             </div>
                                             <div className="col-12">
                                                 <p className="text-start" style={{fontSize: '16px'}}>{product.description}</p>

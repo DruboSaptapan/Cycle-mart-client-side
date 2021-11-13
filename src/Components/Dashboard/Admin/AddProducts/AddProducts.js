@@ -1,14 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+// import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('https://floating-brook-78748.herokuapp.com/products', data)
+        // axios.post('https://floating-brook-78748.herokuapp.com/products', data)
+        //     .then(res => {
+        //         if (res.data.insertedId) {
+        //             Swal.fire(
+        //                 'Good job!',
+        //                 'Successfully the product is added.!',
+        //                 'success'
+        //             )
+        //             reset();
+        //         }
+        //     })
+        fetch('https://floating-brook-78748.herokuapp.com/products')
             .then(res => {
-                console.log(res.data)
                 if (res.data.insertedId) {
                     Swal.fire(
                         'Good job!',
@@ -18,7 +28,7 @@ const AddProduct = () => {
                     reset();
                 }
             })
-    };
+    }
 
     return (
         <div className="container w-50 shadow-lg my-5">
@@ -29,7 +39,7 @@ const AddProduct = () => {
                         <label htmlFor="exampleFormControlInput1" className="form-label">Image URL</label>
                         <input className="form-control" id="exampleFormControlInput1" {...register("picture")} placeholder="image url" required />
                     </div>
-                    
+
                     <div className="mb-3">
                         <label htmlFor="exampleFormControlInput1" className="form-label">Product Title</label>
                         <input type="text" className="form-control" id="exampleFormControlInput1" {...register("name")} placeholder="Product title here" required />

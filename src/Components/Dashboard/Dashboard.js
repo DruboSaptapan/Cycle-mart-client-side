@@ -5,6 +5,7 @@ import logoImg from './logo.png';
 import AddProducts from './Admin/AddProducts/AddProducts';
 import ManageOrders from './Admin/ManageOrders/ManageOrders';
 import MakeAdmin from './Admin/MakeAdmin/MakeAdmin'
+import ManageProducts from './Admin/ManageProducts/ManageProducts'
 import MyOrders from './User/MyOrders/MyOrders';
 import AddReview from './User/AddReview/AddReview';
 import Pay from './User/Pay/Pay';
@@ -16,7 +17,7 @@ const Dashboard = () => {
         <div>
             <div className="d-lg-block d-none">
                 <div className="row mt-3">
-                    <div className="col-lg-2 border-end shadow-lg" style={{height: '95vh'}}>
+                    <div className="col-lg-2 border-end shadow-lg" style={{ height: '100vh' }}>
                         <img src={logoImg} alt="" className="img-fluid w-75" />
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item text-start border border-0">
@@ -46,6 +47,9 @@ const Dashboard = () => {
                                         <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/addproducts`}>Add products</NavLink>
                                     </li>
                                     <li className="list-group-item text-start border border-0">
+                                        <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/manageproducts`}>Manage products</NavLink>
+                                    </li>
+                                    <li className="list-group-item text-start border border-0">
                                         <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/makeadmin`}>Make admin</NavLink>
                                     </li>
                                 </ul>
@@ -55,11 +59,11 @@ const Dashboard = () => {
                             </NavLink>
                         </ul>
                     </div>
-                    <div className="col-lg-10 px-0">
+                    <div className="col-lg-10">
 
-                        {admin &&<h3 className="ms-3 me-5 text-start pb-2 border-bottom border-dark border-2 border-bottom">Admin Dashboard</h3>}
-                        {!admin &&<h3 className="ms-3 me-5 text-start pb-2 border-bottom border-dark border-2 border-bottom">User Dashboard</h3>}
-                        
+                        {admin && <h3 className="ms-3 me-5 text-start pb-2 border-bottom border-dark border-2 border-bottom">Admin Dashboard</h3>}
+                        {!admin && <h3 className="ms-3 me-5 text-start pb-2 border-bottom border-dark border-2 border-bottom">User Dashboard</h3>}
+
                         <Switch>
                             <Route exact path={`${path}`}>
                                 {!admin && <MyOrders></MyOrders>}
@@ -89,6 +93,10 @@ const Dashboard = () => {
                             <Route path={`${path}/pay`}>
                                 <Pay></Pay>
                             </Route>
+
+                            <Route path={`${path}/manageproducts`}>
+                                <ManageProducts></ManageProducts>
+                            </Route>
                         </Switch>
                     </div>
                 </div>
@@ -110,34 +118,44 @@ const Dashboard = () => {
                                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div className="offcanvas-body">
-                                <ul className="list-group list-group-flush">
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to="/home">Home</NavLink>
-                                    </li>
+                                {!admin &&
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/myorders`}>My orders</NavLink>
+                                        </li>
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/addreview`}>Add review</NavLink>
+                                        </li>
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/pay`}>Pay</NavLink>
+                                        </li>
+                                    </ul>
+                                }
 
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/myorders`}>My orders</NavLink>
-                                    </li>
-
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/manageorders`}>Manage orders</NavLink>
-                                    </li>
-
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/addproducts`}>Add products</NavLink>
-                                    </li>
-
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link " aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/makeadmin`}>Make admin</NavLink>
-                                    </li>
-
-                                    <li className="list-group-item text-start border border-0">
-                                        <NavLink className="nav-link" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/pay`}>Pay</NavLink>
-                                    </li>
-                                </ul>
+                                {admin &&
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/manageorders`}>Manage orders</NavLink>
+                                        </li>
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/addproducts`}>Add products</NavLink>
+                                        </li>
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/manageproducts`}>Manage Products</NavLink>
+                                        </li>
+                                        <li className="list-group-item text-start border border-0">
+                                            <NavLink className="nav-link active" aria-current="page" style={{ color: '#000' }} activeStyle={{ fontWeight: 'bold' }} to={`${url}/makeadmin`}>Make admin</NavLink>
+                                        </li>
+                                    </ul>
+                                }
                             </div>
                         </div>
                         <Switch>
+                            <Route exact path={`${path}`}>
+                                {!admin && <MyOrders></MyOrders>}
+                                {admin && <ManageOrders></ManageOrders>}
+                            </Route>
+
                             <Route exact path={`${path}/myorders`}>
                                 {/* <IndexRoute component={MyOrders} /> */}
                                 <MyOrders></MyOrders>
@@ -157,6 +175,10 @@ const Dashboard = () => {
 
                             <Route path={`${path}/pay`}>
                                 <Pay></Pay>
+                            </Route>
+
+                            <Route path={`${path}/manageproducts`}>
+                                <ManageProducts></ManageProducts>
                             </Route>
                         </Switch>
                     </div>

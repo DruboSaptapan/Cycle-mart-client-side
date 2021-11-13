@@ -68,7 +68,7 @@ const Register = () => {
                                         <label htmlFor="floatingPassword">Confirm Password</label>
                                     </div>
 
-                                    <button type="submit" className="btn px-5 text-light my-3" style={{backgroundColor: '#9282f2', color: '#fff'}}>Submit</button>
+                                    <button type="submit" className="btn px-5 text-light my-3" style={{backgroundColor: '#9282f2', color: '#fff'}}>Register</button>
                                     <p className="pb-4">Already have an account? <Link to="/login" className="text-decoration-none fw-bold" style={{color: '#9282f2'}}>Login</Link></p>
                                 </form>
                             </div>

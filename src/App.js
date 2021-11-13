@@ -24,6 +24,10 @@ function App() {
               <Home></Home>
             </Route>
 
+            <PrivateRoute path="/product/:productId">
+              <Product></Product>
+            </PrivateRoute>
+
             <Route path="/products">
               <Products></Products>
             </Route>
@@ -31,10 +35,6 @@ function App() {
             <Route path="/dashboard">
               <Dashboard></Dashboard>
             </Route>
-
-            <PrivateRoute path="/product/:productId">
-              <Product></Product>
-            </PrivateRoute>
 
             <Route path="/login">
               <Login></Login>

@@ -43,8 +43,8 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, Password)
             .then((result) => {
                 Swal.fire(
-                    'Good job!',
-                    'Successfully user created!',
+                    'Welcome.',
+                    'Registration complete!',
                     'success'
                 )
                 setUser(result.user);
@@ -110,6 +110,7 @@ const useFirebase = () => {
         fetch(`https://floating-brook-78748.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
+            .catch((e) => {})
     }, [user.email])
 
     // save user in database

@@ -16,6 +16,7 @@ const Product = () => {
         fetch(`https://floating-brook-78748.herokuapp.com/products/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
+            .catch((e)=>{})
     }, [productId])
 
     const onSubmit = data => {
@@ -45,7 +46,7 @@ const Product = () => {
             <div className="container">
                 <div className="row mt-4">
                     <div className="col-lg-6 col-md-12 col-sm-12 text-center mt-5 ">
-                        <img height="300px" src={product.picture} alt="" /><br />
+                        <img height="300px" src={product.picture} alt="" className="img-fluid -w75" /><br />
                         <h3 className="theme-color mt-3 fw-bold">{product.name}</h3>
                         <h5>Tour Charge: {product.price} Rs.</h5>
                     </div>

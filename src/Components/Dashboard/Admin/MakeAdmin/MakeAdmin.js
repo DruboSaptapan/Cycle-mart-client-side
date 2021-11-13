@@ -37,7 +37,7 @@ const MakeAdmin = () => {
                     <input type="email" name="email" onBlur={handleOnBlur} className="form-control border-bottom border-0 bg-transparent"  placeholder="name@example.com" required />
                     <label htmlFor="floatingInput">Email</label>
                 </div>
-                <button type="submit" className="btn btn-primary text-light px-5">Make Admin</button>
+                <button type="submit" className="btn btn-primary text-light px-5" style={{backgroundColor: '#9282f2', color: '#fff'}}>Make Admin</button>
             </form>
         </div>
     );
