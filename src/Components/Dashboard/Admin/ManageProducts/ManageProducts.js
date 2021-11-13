@@ -55,29 +55,31 @@ const ManageProducts = () => {
     return (
         <div>
             <div className="container">
-                <table className="table table-sm border table-hover">
-                    <thead style={{ backgroundColor: '#2cbf8659' }}>
-                        <tr>
-                            <th className="text-start">Sl.</th>
-                            <th className="text-start">Product full name</th>
-                            <th className="text-start">Product price</th>
-                            <th className="text-start">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            products.map((product, index) => 
-                            <tr key={product._id}>
-                                <th className="text-start" scope="row">{index+1}</th>
-                                <td className="text-start">{product.name}</td>
-                                <td className="text-start">{product.price}</td>
-                                <td className="text-start">
-                                    <button onClick={handleDeleteProduct} className="btn btn-danger btn-sm">Delete</button>
-                                </td>
-                            </tr> )
-                        }
-                    </tbody>
-                </table>
+                <div className="table-responsive">
+                    <table className="table table-sm border table-hover">
+                        <thead style={{ backgroundColor: '#2cbf8659' }}>
+                            <tr>
+                                <th className="text-start">Sl.</th>
+                                <th className="text-start">Product full name</th>
+                                <th className="text-start">Product price</th>
+                                <th className="text-start">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                products.map((product, index) =>
+                                    <tr key={product._id}>
+                                        <th className="text-start" scope="row">{index + 1}</th>
+                                        <td className="text-start">{product.name}</td>
+                                        <td className="text-start">{product.price} taka</td>
+                                        <td className="text-start">
+                                            <button onClick={handleDeleteProduct} className="btn btn-danger btn-sm">Delete</button>
+                                        </td>
+                                    </tr>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
