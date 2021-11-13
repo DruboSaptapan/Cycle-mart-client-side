@@ -3,25 +3,27 @@ import Swal from 'sweetalert2';
 import useAuth from '../../../../Hooks/useAuth';
 
 const ManageProducts = () => {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
+
     useEffect(() => {
         fetch('https://floating-brook-78748.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch((e) => { })
-    }, [])
+    }, [products])
+
     const { isLoading } = useAuth();
     if (isLoading) {
         return (
-            <div className="d-flex justify-content-center align-items-start">
-                <div className="d-flex justify-content-center spinner-border" role="status">
+            <div className="d-flex justify-content-center align-items-center spinner-style">
+                <div className="d-flex justify-content-center spinner-grow" role="status">
                     <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
         )
     }
 
-    /// delete a product
+    // Remove product form manage products
     const handleDeleteProduct = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -42,44 +44,50 @@ const ManageProducts = () => {
                         if (data.deletedCount) {
                             const remainingOrder = products.filter(order => order._id !== id);
                             setProducts(remainingOrder);
+                            Swal.fire(
+                                'Deleted!',
+                                'Successfully your order has been deleted.',
+                                'success'
+                            )
                         }
                     })
-                Swal.fire(
-                    'Deleted!',
-                    'Successfully your order has been deleted.',
-                    'success'
-                )
             }
         })
     }
+
     return (
-        <div>
-            <div className="container">
-                <div className="table-responsive">
-                    <table className="table table-sm border table-hover">
-                        <thead style={{ backgroundColor: '#2cbf8659' }}>
-                            <tr>
-                                <th className="text-start">Sl.</th>
-                                <th className="text-start">Product full name</th>
-                                <th className="text-start">Product price</th>
-                                <th className="text-start">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                products.map((product, index) =>
-                                    <tr key={product._id}>
-                                        <th className="text-start" scope="row">{index + 1}</th>
-                                        <td className="text-start">{product.name}</td>
-                                        <td className="text-start">{product.price} taka</td>
-                                        <td className="text-start">
-                                            <button onClick={handleDeleteProduct} className="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>)
-                            }
-                        </tbody>
-                    </table>
-                </div>
+        <div className="container">
+            <h2 className="mt-5 mb-3">Manage Products</h2>
+            <div className="table-responsive">
+                <table className="table border table-hover">
+                    <thead>
+                        <tr>
+                            <th className="text-start">SL.</th>
+                            <th className="text-start">Product Name</th>
+                            <th className="text-start">Amount</th>
+                            <th className="text-start">Status</th>
+                            <th className="text-start"></th>
+                            <th className="text-start"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            products.map((product, index) =>
+                                <tr key={product._id}>
+                                    <th className="text-start" scope="row">{index + 1}</th>
+                                    <td className="text-start">{product.name}</td>
+                                    <td className="text-start">${product.price}</td>
+                                    {
+                                        product.status === 'Pending' ? <td className="text-danger fw-bold">{product.status}</td> : <td className="text-success fw-bold">{product.status}</td>
+                                    }
+
+                                    <td><button className="btn btn-sm btn-success">In Stock</button></td>
+                                    <td><button onClick={() => handleDeleteProduct(product._id)} className="btn btn-sm btn-danger">Delete</button></td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     );
