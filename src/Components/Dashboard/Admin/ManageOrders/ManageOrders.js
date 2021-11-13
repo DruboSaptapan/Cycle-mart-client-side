@@ -10,6 +10,10 @@ const ManageOrders = () => {
             .then(data => setServices(data))
     }, [])
 
+    const handleApprove = id => {
+
+    }
+
     const handleShipped = id => {
 
     }
@@ -69,9 +73,9 @@ const ManageOrders = () => {
                             orders.map((order, index) =>
                                 <tr key={order._id}>
                                     <th className="text-start" scope="row">{index + 1}</th>
-                                    <td className="text-start">{order.name.slice(1, 7)}</td>
+                                    <td className="text-start">{order.name}</td>
                                     <td className="text-start">{order.email}</td>
-                                    <td className="text-start">{order?.productTitle}</td>
+                                    <td className="text-start">{order?.productTitle.slice(0, 20)}</td>
                                     <td className="text-start">{order.address}</td>
                                     <td className="text-start">{order.price}</td>
                                     <td className="text-start">
@@ -81,8 +85,22 @@ const ManageOrders = () => {
                                         <span className="badge bg-danger" id="pending">Pending</span>
                                     </td>
                                     <td className="text-start">
-                                        <button onClick={() => handleShipped(order._id)} className="btn btn-sm btn-success me-1">Shipped</button>
-                                        <button onClick={() => handleCancelOrder(order._id)} className="btn btn-sm btn-danger ms-1">Cancel</button>
+                                        <div className="dropdown">
+                                            <a className="btn btn-secondary dropdown-toggle btn-sm" href="actions" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Actions
+                                            </a>
+                                            <ul className="dropdown-menu w-25 px-3" aria-labelledby="dropdownMenuLink">
+                                                <li>
+                                                    <button onClick={() => handleApprove(order._id)} className="btn btn-sm btn-outline-primary my-1 w-100">Approve</button>
+                                                </li>
+                                                <li>
+                                                    <button onClick={() => handleShipped(order._id)} className="btn btn-sm btn-outline-success my-1 w-100">Shipped</button>
+                                                </li>
+                                                <li>
+                                                    <button onClick={() => handleCancelOrder(order._id)} className="btn btn-sm btn-outline-danger my-1 w-100">Cancel</button>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </td>
                                 </tr>
                             )

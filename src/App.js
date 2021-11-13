@@ -6,9 +6,9 @@ import NotFound from './Components/NotFound/NotFound'
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import AuthProvider from './Context/AuthProvider';
-import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import Product from './Components/Product/Product'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -28,12 +28,12 @@ function App() {
               <Products></Products>
             </Route>
 
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
+            </Route>
+
             <PrivateRoute path="/product/:productId">
               <Product></Product>
-            </PrivateRoute>
-
-            <PrivateRoute path="/dashboard">
-              <Dashboard></Dashboard>
             </PrivateRoute>
 
             <Route path="/login">

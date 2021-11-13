@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink, Switch, Route, useRouteMatch } from 'react-router-dom';
-import MyOrders from '../User/MyOrders/MyOrders';
-import AddReview from '../User/AddReview/AddReview';
-import Pay from '../User/Pay/Pay';
-import ManageOrders from '../Admin/ManageOrders/ManageOrders';
-import AddProducts from '../Admin/AddProducts/AddProducts';
-import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
+import useAuth from '../../Hooks/useAuth';
 import logoImg from './logo.png';
-import useAuth from '../../../Hooks/useAuth';
+import AddProducts from './Admin/AddProducts/AddProducts';
+import ManageOrders from './Admin/ManageOrders/ManageOrders';
+import MakeAdmin from './Admin/MakeAdmin/MakeAdmin'
+import MyOrders from './User/MyOrders/MyOrders';
+import AddReview from './User/AddReview/AddReview';
+import Pay from './User/Pay/Pay';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();

@@ -26,20 +26,23 @@ const AddProduct = () => {
             <div className="text-start">
                 <form onSubmit={handleSubmit(onSubmit)} className="px-4 pb-5">
                     <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Image URL</label>
+                        <input className="form-control" id="exampleFormControlInput1" {...register("picture")} placeholder="image url" required />
+                    </div>
+                    
+                    <div className="mb-3">
                         <label htmlFor="exampleFormControlInput1" className="form-label">Product Title</label>
                         <input type="text" className="form-control" id="exampleFormControlInput1" {...register("name")} placeholder="Product title here" required />
                     </div>
+
                     <div className="mb-3">
                         <label htmlFor="exampleFormControlTextarea1" className="form-label">Description</label>
                         <textarea className="form-control" id="exampleFormControlTextarea1" {...register("description")} placeholder="some text here" rows="3" required></textarea>
                     </div>
+
                     <div className="mb-3">
                         <label htmlFor="exampleFormControlInput1" className="form-label">Price</label>
                         <input type="number" className="form-control" id="exampleFormControlInput1" {...register("price")} placeholder="$ price" required />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="exampleFormControlInput1" className="form-label">Image URL</label>
-                        <input className="form-control" id="exampleFormControlInput1" {...register("picture")} placeholder="image url" required />
                     </div>
 
                     <span className="w-50 mx-auto" style={{ display: "block" }}>
