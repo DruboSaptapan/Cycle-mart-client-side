@@ -9,6 +9,7 @@ import ManageProducts from './Admin/ManageProducts/ManageProducts'
 import MyOrders from './User/MyOrders/MyOrders';
 import AddReview from './User/AddReview/AddReview';
 import Pay from './User/Pay/Pay';
+import AdminRoute from './Admin/AdminRoute/AdminRoute';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -74,29 +75,29 @@ const Dashboard = () => {
                                 <MyOrders></MyOrders>
                             </Route>
 
-                            <Route path={`${path}/manageorders`}>
+                            <AdminRoute path={`${path}/manageorders`}>
                                 <ManageOrders></ManageOrders>
-                            </Route>
+                            </AdminRoute>
 
-                            <Route path={`${path}/addproducts`}>
+                            <AdminRoute path={`${path}/addproducts`}>
                                 <AddProducts></AddProducts>
-                            </Route>
+                            </AdminRoute>
 
                             <Route path={`${path}/addreview`}>
                                 <AddReview></AddReview>
                             </Route>
 
-                            <Route path={`${path}/makeadmin`}>
+                            <AdminRoute path={`${path}/makeadmin`}>
                                 <MakeAdmin></MakeAdmin>
-                            </Route>
+                            </AdminRoute>
 
                             <Route path={`${path}/pay`}>
                                 <Pay></Pay>
                             </Route>
 
-                            <Route path={`${path}/manageproducts`}>
+                            <AdminRoute path={`${path}/manageproducts`}>
                                 <ManageProducts></ManageProducts>
-                            </Route>
+                            </AdminRoute>
                         </Switch>
                     </div>
                 </div>

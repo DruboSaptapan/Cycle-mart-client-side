@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import logo from './logo.png'
+import userAvatar from './avatar.png'
 
 const Header = () => {
     const { user, logOut } = useAuth();
@@ -32,10 +33,14 @@ const Header = () => {
                         </ul>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-center">
                             <li className="nav-item me-3">
-                            {
+                                {
                                     ((user?.displayName) || (user?.photoURL) || (user?.email)) &&
                                     <span className="rounded-pill mx-lg-0 mx-auto py-1 px-2 d-flex align-items-center justify-content-center my-3 my-lg-0">
-                                        <img src={user?.photoURL} className="rounded-pill user me-2" alt="" style={{ width: '35px' }} />
+                                        {
+                                            user.photoURL ?
+                                                <img src={user.photoURL} className="rounded-pill user me-2" alt="" style={{ width: '35px' }} /> :
+                                                <img src={userAvatar} className="rounded-pill user me-2" alt="" style={{ width: '35px' }} />
+                                        }
                                         <p className="mb-2 fw-bold">{(user?.displayName) || (user?.email)}</p>
                                     </span>
                                 }

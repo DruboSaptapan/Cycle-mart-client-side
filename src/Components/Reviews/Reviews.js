@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
-import Rating from 'react-rating'
+import Rating from 'react-rating';
+import userAvatar from './avatar.png'
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -79,11 +80,11 @@ const Reviews = () => {
       <Slider {...settings}>
         {reviews.map(review =>
           <div className="py-5 px-2 px-lg-5" key={review._id}>
-            <img src="https://i.postimg.cc/RZ9vG78n/people-2.png" className="img-rounded w-25" alt="" />
+            <img src={userAvatar} className="img-rounded w-25 border border-5" alt="" style={{ borderRadius: '50%' }} />
             <h5 className="text-start">{review?.name}</h5>
             <p className="mt-3 text-start">{review?.comment}</p>
             <div className="text-start">
-              <Rating initialRating={review.rating} className="text-warning" emptySymbol="far fa-star fa-2x" fullSymbol="fas fa-star fa-2x" readonly></Rating>
+            <Rating initialRating={review.rating} className="text-warning" emptySymbol="far fa-star" fullSymbol="fas fa-star" readonly ></Rating>
             </div>
           </div>)}
       </Slider>
@@ -92,3 +93,8 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+
+
+
+
