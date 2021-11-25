@@ -6,6 +6,7 @@ import userAvatar from './avatar.png'
 
 const Header = () => {
     const { user, logOut } = useAuth();
+    console.log(user)
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">

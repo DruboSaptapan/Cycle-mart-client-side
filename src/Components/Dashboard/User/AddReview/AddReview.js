@@ -29,7 +29,9 @@ const AddReview = () => {
                         <label htmlFor="exampleFormControlInput1" className="form-label">User Name</label>
                         <input type="text" className="form-control" defaultValue={user.displayName} {...register("name", { required: true })} />
                     </div>
-
+                    {/* {
+                        user.photoURL && { ...register("photoURL") }
+                    } */}
                     <div className="mb-3">
                         <label htmlFor="exampleFormControlTextarea1" className="form-label">Comment</label>
                         <textarea className="form-control" id="exampleFormControlTextarea1" {...register("comment", { required: true })} placeholder="some text here" rows="3" required></textarea>
